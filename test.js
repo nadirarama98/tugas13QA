@@ -23,3 +23,16 @@ describe("Get Resource single reqres", function() {
         expect(response.body.data.year).to.eql(2001);
     })
 })
+
+const requestdummy = require("supertest")("https://dummy.restapiexample.com/");
+
+describe("Post User reqres", function() {
+    it("Success register - 200" , async function(){
+        const response = await requestdummy
+        .delete("api/v1/delete/6")
+        .send();
+
+        expect(response.body.status).to.eql("success");
+        expect(response.body.message).to.eql("Successfully! Record has been deleted");
+    })
+})
